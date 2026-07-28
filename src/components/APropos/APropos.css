@@ -172,3 +172,29 @@
     padding: 12px 18px;
   }
 }
+
+@media (max-width: 360px) {
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  .apropos-description {
+    font-size: 1rem;
+  }
+
+  .highlight-text {
+    font-size: 0.95rem;
+  }
+
+  .badge-number {
+    font-size: 1.6rem;
+  }
+
+  .badge-label {
+    font-size: 0.65rem;
+  }
+
+  .apropos-image img {
+    height: 260px;
+  }
+}

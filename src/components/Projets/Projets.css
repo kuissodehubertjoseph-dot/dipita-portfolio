@@ -189,3 +189,22 @@
     font-size: 1.2rem;
   }
 }
+
+@media (max-width: 360px) {
+  .projet-title {
+    font-size: 1.05rem;
+  }
+
+  .projet-description {
+    font-size: 0.85rem;
+  }
+
+  .projet-image img {
+    height: 190px;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+}

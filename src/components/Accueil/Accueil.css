@@ -259,3 +259,31 @@
     right: 20px;
   }
 }
+
+@media (max-width: 360px) {
+  .accueil-role {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+  }
+
+  .accueil-lastname {
+    font-size: 1.8rem;
+  }
+
+  .accueil-firstname {
+    font-size: 1.5rem;
+  }
+
+  .accueil-description {
+    font-size: 1rem;
+  }
+
+  .accueil-photo img {
+    height: 280px;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
