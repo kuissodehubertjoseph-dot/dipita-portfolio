@@ -149,9 +149,9 @@
     top: 70px;
     left: 0;
     right: 0;
-    background: var(--bg-nav-mobile);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 20px 40px var(--shadow-medium);
     flex-direction: column;
     padding: 2rem;
     gap: 1.5rem;
@@ -165,5 +165,9 @@
     transform: translateY(0);
     opacity: 1;
     pointer-events: all;
+  }
+
+  .navbar:has(.navbar-links.open) {
+    background: var(--bg-primary);
   }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -7,10 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#1a1a1a" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Portfolio de Hubert Joseph KUISSODE, développeur web fullstack (React, PHP, WordPress)."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -27,7 +27,59 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>KUISSODE Hubert Joseph | Développeur Fullstack</title>
+    <style>
+      body { margin: 0; background: #1a1a1a; }
+      html[data-theme="light"] body { background: #ffffff; }
+      .preloader {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        text-align: center;
+        font-family: 'Roboto', Arial, sans-serif;
+        padding: 1rem;
+      }
+      .preloader-role {
+        font-size: 0.85rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #3b82f6;
+        font-weight: 500;
+        margin-bottom: 0.6rem;
+      }
+      .preloader-last {
+        font-size: clamp(2.2rem, 9vw, 4.5rem);
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: #ffffff;
+        line-height: 1.1;
+      }
+      html[data-theme="light"] .preloader-last { color: #18181a; }
+      .preloader-first {
+        font-size: clamp(1.6rem, 7vw, 3.2rem);
+        font-weight: 800;
+        line-height: 1.1;
+        background: linear-gradient(90deg, #3b82f6, #22d3ee);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .preloader-bar {
+        margin-top: 1.4rem;
+        width: 120px;
+        height: 4px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, #3b82f6, #22d3ee);
+        animation: preloaderPulse 1.1s ease-in-out infinite;
+      }
+      @keyframes preloaderPulse {
+        0%, 100% { opacity: 0.35; transform: scaleX(0.6); }
+        50% { opacity: 1; transform: scaleX(1); }
+      }
+    </style>
     <script>
       (function () {
         try {
@@ -42,7 +94,13 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div class="preloader">
+        <h1 class="preloader-last">KUISSODE</h1>
+        <h2 class="preloader-first">Hubert Joseph</h2>
+        <div class="preloader-bar"></div>
+      </div>
+    </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

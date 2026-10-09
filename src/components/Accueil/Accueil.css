@@ -131,7 +131,8 @@
 
 .accueil-photo img {
   width: 100%;
-  height: 480px;
+  height: auto;
+  aspect-ratio: 5 / 6;
   object-fit: cover;
   object-position: top;
   display: block;
@@ -224,6 +225,8 @@
 
   .accueil-firstname {
     font-size: 2.5rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .accueil-right {
@@ -246,7 +249,7 @@
   }
 
   .accueil-photo img {
-    height: 350px;
+    height: auto;
   }
 
   .accueil-buttons {
@@ -285,7 +288,7 @@
   }
 
   .accueil-photo img {
-    height: 280px;
+    height: auto;
   }
 
   .btn {
