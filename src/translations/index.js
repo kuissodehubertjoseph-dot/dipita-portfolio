@@ -7,10 +7,19 @@ const translations = {
       projets: "Projets",
       contact: "Contact",
     },
+    a11y: {
+      menu: "Menu",
+      lightMode: "Activer le mode clair",
+      darkMode: "Activer le mode sombre",
+      lightModeTitle: "Mode clair",
+      darkModeTitle: "Mode sombre",
+      whatsapp: "Discuter sur WhatsApp",
+    },
     accueil: {
-      role: "Fullstack Developer",
+      role: "Développeur Fullstack",
       lastName: "KUISSODE",
       firstName: "Hubert Joseph",
+      photoAlt: "Portrait de Kuissode Hubert Joseph",
       contactBtn: "Me contacter",
       cvBtn: "Télécharger CV",
     },
@@ -25,6 +34,7 @@ const translations = {
       ],
       statsNumber: "5+",
       statsLabel: "PROJETS TERMINÉS",
+      imageAlt: "Espace de travail d'un développeur",
     },
     competences: {
       title: "Compétences",
@@ -33,22 +43,46 @@ const translations = {
     },
     projets: {
       title: "Projets",
+      viewSite: "Voir le site",
+      viewProject: "Voir le projet",
+      items: {
+        school: {
+          category: "BACKEND PHP",
+          title: "Dashboard de gestion scolaire",
+          description:
+            "Système complet de gestion scolaire avec suivi des élèves, notes et présences",
+        },
+        fitness: {
+          category: "SITE VITRINE",
+          title: "Peace Fitness",
+          description:
+            "Site web complet pour une salle de sport : pages Accueil, Contact, Équipe, Galerie, Programmes et Tarifs. Réalisé en HTML, CSS et JavaScript vanilla.",
+        },
+        resto: {
+          category: "SITE VITRINE",
+          title: "Restaurant Panéka",
+        },
+        guesthouse: {
+          category: "SITE VITRINE",
+          title: "Guest House Don Geraldo",
+        },
+      },
     },
     contact: {
       title: "Contact",
-      emailLabel: "EMAIL",
+      emailLabel: "E-MAIL",
       emailValue: "kuissodehubertjoseph@gmail.com",
-      phoneLabel: "PHONE",
-      phoneValue: "+229 01 46 28 63 79",
-      locationLabel: "LOCATION",
+      phoneLabel: "TÉLÉPHONE",
+      phoneValue: "+229 01 94 10 34 89",
+      locationLabel: "EMPLACEMENT",
       locationValue: "Cotonou, Bénin",
       whatsappBtn: "Discuter sur WhatsApp",
       nomLabel: "NOM",
       nomPlaceholder: "John Doe",
-      emailFormLabel: "EMAIL",
+      emailFormLabel: "E-MAIL",
       emailFormPlaceholder: "john@example.com",
       messageLabel: "MESSAGE",
-      messagePlaceholder: "Hello...",
+      messagePlaceholder: "Bonjour...",
       send: "Envoyer",
       sending: "Envoi en cours...",
       success: "Merci ! Votre message a bien été envoyé.",
@@ -63,10 +97,19 @@ const translations = {
       projets: "Projects",
       contact: "Contact",
     },
+    a11y: {
+      menu: "Menu",
+      lightMode: "Switch to light mode",
+      darkMode: "Switch to dark mode",
+      lightModeTitle: "Light mode",
+      darkModeTitle: "Dark mode",
+      whatsapp: "Chat on WhatsApp",
+    },
     accueil: {
       role: "Fullstack Developer",
       lastName: "KUISSODE",
       firstName: "Hubert Joseph",
+      photoAlt: "Portrait of Kuissode Hubert Joseph",
       contactBtn: "Contact me",
       cvBtn: "Download CV",
     },
@@ -81,6 +124,7 @@ const translations = {
       ],
       statsNumber: "5+",
       statsLabel: "COMPLETED PROJECTS",
+      imageAlt: "A developer's workspace",
     },
     competences: {
       title: "Skills",
@@ -89,13 +133,37 @@ const translations = {
     },
     projets: {
       title: "Projects",
+      viewSite: "View site",
+      viewProject: "View project",
+      items: {
+        school: {
+          category: "PHP BACKEND",
+          title: "School management dashboard",
+          description:
+            "Complete school management system with student tracking, grades and attendance",
+        },
+        fitness: {
+          category: "SHOWCASE SITE",
+          title: "Peace Fitness",
+          description:
+            "Complete website for a gym: Home, Contact, Team, Gallery, Programs and Pricing pages. Built with HTML, CSS and vanilla JavaScript.",
+        },
+        resto: {
+          category: "SHOWCASE SITE",
+          title: "Panéka Restaurant",
+        },
+        guesthouse: {
+          category: "SHOWCASE SITE",
+          title: "Don Geraldo Guest House",
+        },
+      },
     },
     contact: {
       title: "Contact",
       emailLabel: "EMAIL",
       emailValue: "kuissodehubertjoseph@gmail.com",
       phoneLabel: "PHONE",
-      phoneValue: "+229 01 46 28 63 79",
+      phoneValue: "+229 01 94 10 34 89",
       locationLabel: "LOCATION",
       locationValue: "Cotonou, Benin",
       whatsappBtn: "Chat on WhatsApp",

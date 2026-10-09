@@ -70,6 +70,11 @@
   border-color: #0077b5;
 }
 
+.footer-social-whatsapp:hover {
+  background: #25d366;
+  border-color: #25d366;
+}
+
 .footer-bottom {
   border-top: 1px solid var(--border-subtle);
   width: 100%;

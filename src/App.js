@@ -11,16 +11,24 @@ import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 const BACKGROUNDS = {
-  dark: { background: "#1a1a1a", colors: ["#3b82f6", "#22d3ee", "#1a1a1a"] },
-  light: { background: "#ffffff", colors: ["#3b82f6", "#22d3ee", "#ffffff"] },
+  dark: {
+    background: "#1a1a1a",
+    colors: ["#3b82f6", "#22d3ee", "#1a1a1a"],
+    accent: "#a78bfa",
+  },
+  light: {
+    background: "#ffffff",
+    colors: ["#3b82f6", "#22d3ee", "#ffffff"],
+    accent: "#7c3aed",
+  },
 };
 
 function AnimatedBackground() {
   const { theme } = useTheme();
-  const { background, colors } = BACKGROUNDS[theme];
+  const { background, colors, accent } = BACKGROUNDS[theme];
   return (
     <div className="animated-bg" aria-hidden="true">
-      <CursorRingField background={background} colors={colors} />
+      <CursorRingField background={background} colors={colors} accentColor={accent} />
     </div>
   );
 }

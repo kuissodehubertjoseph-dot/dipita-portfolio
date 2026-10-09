@@ -233,6 +233,8 @@ uniform vec3  uColors[${MAX_COLORS}];
 uniform int   uColorCount;
 uniform vec2  uRingPos;
 uniform float uTime;
+uniform vec3  uAccent;
+uniform float uAccentMix;
 
 ${NOISE}
 
@@ -273,6 +275,10 @@ void main(){
 
     float a = mask * smoothstep(0.1, 0.2, vScale);
     if (a < 0.01) discard;
+
+    // Couleur secondaire : les points proches du curseur (l'anneau) en changent.
+    float nearRing = smoothstep(0.13, 0.03, distance(vLocalPos, uRingPos));
+    color = mix(color, uAccent, nearRing * uAccentMix);
 
     color = clamp(color, 0.0, 1.0);
     color *= clamp(vEnergy, 0.0, 1.0);
@@ -516,6 +522,7 @@ export default function CursorRingField(props) {
   const {
     background: backgroundProp,
     colors,
+    accentColor,
     density = 300,
     dotSize = 120,
     speed = 6,
@@ -560,8 +567,12 @@ export default function CursorRingField(props) {
     flatColors[i * 3 + 2] = c[2];
   }
 
+  const accentRgb = accentColor ? hexToRgb(accentColor) : [0, 0, 0];
+
   const live = useRef({});
   live.current = {
+    accent: new Float32Array(accentRgb),
+    accentMix: accentColor ? 0.9 : 0,
     colors: flatColors,
     colorCount: swatches.length,
     dotSize: dotSize / 100,
@@ -616,6 +627,8 @@ export default function CursorRingField(props) {
         "uColorCount",
         "uRingPos",
         "uTime",
+        "uAccent",
+        "uAccentMix",
       ];
       if (useSim) renderNames.push("uState");
       else renderNames.push("uRingRadius", "uRingWidth", "uRingWidth2", "uTurb");
@@ -856,6 +869,8 @@ export default function CursorRingField(props) {
       );
       gl.uniform3fv(renderProg.u["uColors[0]"], L.colors);
       gl.uniform1i(renderProg.u.uColorCount, L.colorCount);
+      gl.uniform3fv(renderProg.u.uAccent, L.accent);
+      gl.uniform1f(renderProg.u.uAccentMix, L.accentMix);
       gl.uniform2f(renderProg.u.uRingPos, ringPos.x, ringPos.y);
       gl.uniform1f(renderProg.u.uTime, simTime);
 

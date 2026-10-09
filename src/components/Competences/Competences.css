@@ -105,6 +105,13 @@
   }
 }
 
+/* Dernière carte seule sur sa ligne : centrée */
+@media (min-width: 601px) {
+  .skills-grid .skill-card:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+}
+
 @media (max-width: 600px) {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);

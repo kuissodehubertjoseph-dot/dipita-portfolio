@@ -35,7 +35,7 @@ function Navbar() {
         <button
           className={`navbar-burger ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menu"
+          aria-label={t.a11y.menu}
         >
           <span></span>
           <span></span>
@@ -88,8 +88,8 @@ function Navbar() {
             <button
               className="theme-toggle"
               onClick={toggleTheme}
-              aria-label={theme === "dark" ? "Activer le mode clair" : "Activer le mode sombre"}
-              title={theme === "dark" ? "Mode clair" : "Mode sombre"}
+              aria-label={theme === "dark" ? t.a11y.lightMode : t.a11y.darkMode}
+              title={theme === "dark" ? t.a11y.lightModeTitle : t.a11y.darkModeTitle}
             >
               {theme === "dark" ? (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

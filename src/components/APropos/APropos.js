@@ -39,7 +39,7 @@ function APropos() {
           <div className="apropos-image">
             <img
               src={process.env.PUBLIC_URL + "/apropos.jpg"}
-              alt="À propos"
+              alt={t.apropos.imageAlt}
             />
           </div>
           <div className="apropos-badge">
