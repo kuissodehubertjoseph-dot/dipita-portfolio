@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-primary);
+  background: transparent;
   padding: 6rem 4rem;
   transition: background-color 0.3s ease;
 }
@@ -42,7 +42,7 @@
 
 .skill-card:hover {
   transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 16px 40px rgba(230, 126, 34, 0.15);
+  box-shadow: 0 16px 40px rgba(59, 130, 246, 0.15);
   border-color: var(--accent);
 }
 
@@ -89,7 +89,7 @@
 }
 
 .skill-card:hover .skill-level {
-  background: rgba(230, 126, 34, 0.15);
+  background: rgba(59, 130, 246, 0.15);
   color: var(--accent);
 }
 

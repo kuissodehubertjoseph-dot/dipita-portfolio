@@ -30,9 +30,11 @@ body {
   --border-strong: #444444;
   --border-subtle: #2a2a2a;
 
-  --accent: #e67e22;
-  --accent-hover: #d35400;
-  --accent-hover-soft: #cf6d17;
+  --accent: #3b82f6;
+  --accent-hover: #1d4ed8;
+  --accent-hover-soft: #2563eb;
+  --accent-2: #22d3ee;
+  --gradient: linear-gradient(90deg, #3b82f6, #22d3ee);
 
   --shadow-soft: rgba(0, 0, 0, 0.3);
   --shadow-medium: rgba(0, 0, 0, 0.4);
@@ -75,4 +77,21 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Sous-titres et textes secondaires : Roboto, bien lisibles ── */
+
+.accueil-role,
+.projet-category,
+.projet-title,
+.projet-description,
+.skill-name,
+.skill-level,
+.contact-info-label,
+.contact-info-value,
+.form-group label,
+.highlight-text,
+.badge-label,
+.tech-tag {
+  font-family: 'Roboto', sans-serif;
 }

@@ -1,5 +1,6 @@
 import { useLanguage } from "../../context/LanguageContext";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import TactileButton from "../TactileButton/TactileButton";
 import "./Projets.css";
 
 const projects = [
@@ -84,9 +85,19 @@ function Projets() {
                   ))}
                 </div>
                 {project.link !== "#" && (
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="projet-voir-code">
-                    {project.linkLabel || "Voir le code"}
-                  </a>
+                  <TactileButton
+                    label={project.linkLabel || "Voir le code"}
+                    link={project.link}
+                    newTab
+                    padding="8px 20px"
+                    fill="#3b82f6"
+                    textColor="#ffffff"
+                    hover={{ fill: "#22d3ee", textColor: "#0b1220" }}
+                    base={{ color: "#1d4ed8", offsetX: 0, offsetY: 4 }}
+                    rounded={40}
+                    font={{ fontWeight: 600, fontSize: "0.85rem" }}
+                    style={{ marginTop: "1rem" }}
+                  />
                 )}
               </div>
             </div>

@@ -1,5 +1,6 @@
 import { LanguageProvider } from "./context/LanguageContext";
-import { ThemeProvider } from "./context/ThemeContext";
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import CursorRingField from "./components/CursorRingField/CursorRingField";
 import Navbar from "./components/Navbar/Navbar";
 import Accueil from "./components/Accueil/Accueil";
 import APropos from "./components/APropos/APropos";
@@ -9,10 +10,26 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 
+const BACKGROUNDS = {
+  dark: { background: "#1a1a1a", colors: ["#3b82f6", "#22d3ee", "#1a1a1a"] },
+  light: { background: "#ffffff", colors: ["#3b82f6", "#22d3ee", "#ffffff"] },
+};
+
+function AnimatedBackground() {
+  const { theme } = useTheme();
+  const { background, colors } = BACKGROUNDS[theme];
+  return (
+    <div className="animated-bg" aria-hidden="true">
+      <CursorRingField background={background} colors={colors} />
+    </div>
+  );
+}
+
 function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
+        <AnimatedBackground />
         <div className="App">
           <Navbar />
           <Accueil />

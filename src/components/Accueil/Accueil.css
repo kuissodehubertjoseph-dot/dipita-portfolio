@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: var(--bg-primary);
+  background: transparent;
   padding: 100px 4rem 4rem;
   position: relative;
   transition: background-color 0.3s ease;
@@ -48,7 +48,12 @@
   font-size: 4rem;
   font-weight: 800;
   color: var(--accent);
-  margin: 0.1em 0 0.6em;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: fit-content;
+  margin: 0.1em 0 2.5rem;
   line-height: 1.1;
 }
 
@@ -87,12 +92,13 @@
 }
 
 .btn-contact {
-  background: var(--accent);
+  background: var(--gradient);
   color: #fff;
 }
 
 .btn-contact:hover {
   background: var(--accent-hover);
+  filter: brightness(1.1);
 }
 
 .btn-cv {
@@ -144,13 +150,13 @@
 
 .bar-orange {
   width: 0;
-  background: var(--accent);
+  background: var(--gradient);
   animation: barGrow100 1.2s 0.8s ease forwards;
 }
 
 .bar-yellow {
   width: 0;
-  background: #d4a017;
+  background: var(--accent-2);
   animation: barGrow75 1.2s 1s ease forwards;
 }
 

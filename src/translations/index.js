@@ -11,15 +11,13 @@ const translations = {
       role: "Fullstack Developer",
       lastName: "KUISSODE",
       firstName: "Hubert Joseph",
-      description:
-        "Je m'appelle Joseph, développeur fullstack.",
       contactBtn: "Me contacter",
       cvBtn: "Télécharger CV",
     },
     apropos: {
       title: "À propos",
       description:
-        "Je m'appelle Joseph, étudiant et développeur web fullstack passionné par la création d'expériences digitales modernes et performantes. J'utilise React pour des interfaces fluides, WordPress pour des sites vitrines professionnels et PHP pour des backends solides et bien structurés. J'accompagne les entreprises à chaque étape de leur projet — de la première maquette à la mise en ligne — avec des solutions optimisées pour convertir : sites vitrines, e-commerce et plateformes web sur mesure.",
+        "Je m'appelle Joseph, étudiant et développeur web fullstack passionné par la création d'expériences numériques modernes et performantes. J'utilise React pour des interfaces fluides, WordPress pour des sites vitrines professionnels et PHP pour des backends solides et bien structurés. J'accompagne les entreprises à chaque étape de leur projet, de la première maquette à la mise en ligne, avec des solutions optimisées pour convertir : sites vitrines, e-commerce et plateformes web sur mesure.",
       highlights: [
         "React pour interfaces modernes",
         "PHP pour backend",
@@ -52,6 +50,9 @@ const translations = {
       messageLabel: "MESSAGE",
       messagePlaceholder: "Hello...",
       send: "Envoyer",
+      sending: "Envoi en cours...",
+      success: "Merci ! Votre message a bien été envoyé.",
+      error: "Une erreur est survenue. Réessayez ou écrivez-moi directement par e-mail.",
     },
   },
   en: {
@@ -66,15 +67,13 @@ const translations = {
       role: "Fullstack Developer",
       lastName: "KUISSODE",
       firstName: "Hubert Joseph",
-      description:
-        "My name is Joseph, fullstack developer.",
       contactBtn: "Contact me",
       cvBtn: "Download CV",
     },
     apropos: {
       title: "About",
       description:
-        "My name is Joseph, a fullstack web student and developer passionate about creating modern, high-performing digital experiences. I use React for fluid interfaces, WordPress for professional showcase sites, and PHP for solid, well-structured backends. I support businesses at every stage of their project — from the first mockup to going live — with conversion-optimized solutions: showcase sites, e-commerce, and custom web platforms.",
+        "My name is Joseph, a fullstack web student and developer passionate about creating modern, high-performing digital experiences. I use React for fluid interfaces, WordPress for professional showcase sites, and PHP for solid, well-structured backends. I support businesses at every stage of their project, from the first mockup to going live, with conversion-optimized solutions: showcase sites, e-commerce, and custom web platforms.",
       highlights: [
         "React for modern interfaces",
         "PHP for backend",
@@ -107,6 +106,9 @@ const translations = {
       messageLabel: "MESSAGE",
       messagePlaceholder: "Hello...",
       send: "Send",
+      sending: "Sending...",
+      success: "Thank you! Your message has been sent.",
+      error: "Something went wrong. Please try again or email me directly.",
     },
   },
 };

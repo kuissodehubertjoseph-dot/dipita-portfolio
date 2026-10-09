@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import TactileButton from "../TactileButton/TactileButton";
 import "./Contact.css";
+
+// Clé publique Web3Forms (gratuite) : à obtenir sur https://web3forms.com
+// avec l'adresse e-mail qui doit recevoir les messages.
+const WEB3FORMS_KEY = "842e51e2-2e59-4278-afff-47499198ee8b";
 
 function Contact() {
   const { t } = useLanguage();
@@ -15,10 +20,41 @@ function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const [status, setStatus] = useState("idle");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const mailtoLink = `mailto:kuissodehubertjoseph@gmail.com?subject=Contact de ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message)}`;
-    window.location.href = mailtoLink;
+
+    if (!WEB3FORMS_KEY) {
+      const mailtoLink = `mailto:kuissodehubertjoseph@gmail.com?subject=Contact de ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message)}`;
+      window.location.href = mailtoLink;
+      return;
+    }
+
+    setStatus("sending");
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Nouveau message de ${formData.name} (portfolio)`,
+          from_name: "Portfolio",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+      const result = await response.json();
+      if (result.success) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
   };
 
   const titleRef = useScrollReveal();
@@ -40,7 +76,7 @@ function Contact() {
           <div className="contact-info-card reveal-left" ref={leftRef}>
             <div className="contact-info-item">
               <div className="contact-icon-circle">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e67e22" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                   <polyline points="22,6 12,13 2,6"/>
                 </svg>
@@ -53,7 +89,7 @@ function Contact() {
 
             <div className="contact-info-item">
               <div className="contact-icon-circle">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e67e22" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
               </div>
@@ -65,7 +101,7 @@ function Contact() {
 
             <div className="contact-info-item">
               <div className="contact-icon-circle">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e67e22" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
@@ -141,12 +177,31 @@ function Contact() {
                   required
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-send">
-                {t.contact.send}
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                </svg>
-              </button>
+              <TactileButton
+                type="submit"
+                label={status === "sending" ? t.contact.sending : t.contact.send}
+                padding="16px"
+                addIcon
+                icon={{ symbol: "➤", side: "right", size: 16, color: "#ffffff", hoverColor: "#0b1220" }}
+                gap={10}
+                fill="#3b82f6"
+                textColor="#ffffff"
+                hover={{ fill: "#22d3ee", textColor: "#0b1220" }}
+                base={{ color: "#1d4ed8", offsetX: 0, offsetY: 5 }}
+                rounded={30}
+                font={{ fontWeight: 700, fontSize: "1.05rem" }}
+                style={{ width: "100%" }}
+              />
+              {status === "success" && (
+                <p className="form-status form-status-success" role="status">
+                  {t.contact.success}
+                </p>
+              )}
+              {status === "error" && (
+                <p className="form-status form-status-error" role="alert">
+                  {t.contact.error}
+                </p>
+              )}
             </form>
           </div>
         </div>

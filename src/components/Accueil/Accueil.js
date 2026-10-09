@@ -1,5 +1,6 @@
 import { useLanguage } from "../../context/LanguageContext";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import TactileButton from "../TactileButton/TactileButton";
 import "./Accueil.css";
 
 function Accueil() {
@@ -21,35 +22,34 @@ function Accueil() {
           <p className="accueil-role">{t.accueil.role}</p>
           <h1 className="accueil-lastname">{t.accueil.lastName}</h1>
           <h2 className="accueil-firstname">{t.accueil.firstName}</h2>
-          <p className="accueil-description">
-            {t.accueil.description}
-          </p>
           <div className="accueil-buttons">
-            <button
-              className="btn btn-contact"
+            <TactileButton
+              label={t.accueil.contactBtn}
               onClick={() => handleScroll("contact")}
-            >
-              {t.accueil.contactBtn}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14" />
-                <path d="M12 5l7 7-7 7" />
-              </svg>
-            </button>
-            <a
-              href={process.env.PUBLIC_URL + "/cv.html"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-cv"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="16" y1="13" x2="8" y2="13" />
-                <line x1="16" y1="17" x2="8" y2="17" />
-                <polyline points="10 9 9 9 8 9" />
-              </svg>
-              {t.accueil.cvBtn}
-            </a>
+              padding="14px 32px"
+              addIcon
+              icon={{ symbol: "→", side: "right", size: 18, color: "#ffffff", hoverColor: "#0b1220" }}
+              gap={10}
+              fill="#3b82f6"
+              textColor="#ffffff"
+              hover={{ fill: "#22d3ee", textColor: "#0b1220" }}
+              base={{ color: "#1d4ed8", offsetX: 0, offsetY: 5 }}
+              rounded={100}
+              font={{ fontWeight: 600, fontSize: "1rem" }}
+            />
+            <TactileButton
+              label={t.accueil.cvBtn}
+              link={process.env.PUBLIC_URL + "/cv.html"}
+              newTab
+              padding="14px 32px"
+              fill="#2a2a2a"
+              textColor="#cccccc"
+              hover={{ fill: "#3b82f6", textColor: "#ffffff" }}
+              base={{ color: "#0d0d0d", offsetX: 0, offsetY: 5 }}
+              border={{ border: "1.5px solid #444444" }}
+              rounded={100}
+              font={{ fontWeight: 600, fontSize: "1rem" }}
+            />
           </div>
         </div>
 
